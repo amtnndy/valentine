@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Question</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #ffebee;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        h1 {
+            color: #d32f2f;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding: 0 20px;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 200px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            position: absolute;
+            touch-action: none; /* Prevents scrolling when touching buttons */
+        }
+
+        #yesBtn {
+            background-color: #ff4081;
+            color: white;
+            left: 50%;
+            transform: translateX(-120%);
+        }
+
+        #noBtn {
+            background-color: #9e9e9e;
+            color: white;
+            left: 50%;
+            transform: translateX(20%);
+        }
+
+        .heart {
+            font-size: 50px;
+            color: #ff4081;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="heart">❤️</div>
+    <h1>Will you be my Valentine?</h1>
+
+    <div class="container">
+        <button id="yesBtn" class="btn" onclick="celebrate()">Yes!</button>
+        <button id="noBtn" class="btn">No</button>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById('noBtn');
+        const yesBtn = document.getElementById('yesBtn');
+
+        // Replace the link below with your specific Google Drive link
+        const driveLink = "https://drive.google.com/file/d/1d20LtxcrdH1puy1ny8xPwVYXeocCc0zD/view?usp=drivesdk";
+
+        function moveButton() {
+            // Calculate random positions within the screen bounds
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+            noBtn.style.transform = 'none'; // Remove the initial centering
+        }
+
+        // Moves the button on touch (Mobile) or Hover (Desktop)
+        noBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            moveButton();
+        });
+        
+        noBtn.addEventListener('mouseover', moveButton);
+
+        function celebrate() {
+            window.location.href = driveLink;
+        }
+    </script>
+</body>
+</html>
