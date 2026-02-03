@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine 💖</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg,#ff758c,#ff7eb3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+.box {
+  background: rgba(255,255,255,0.25);
+  padding: 25px;
+  border-radius: 20px;
+  text-align: center;
+  width: 90%;
+  max-width: 350px;
+  position: relative;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.buttons {
+  position: relative;
+  height: 120px;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  font-size: 18px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+#yes {
+  background: #00e676;
+  margin-bottom: 15px;
+  z-index: 1;
+  position: relative;
+}
+
+#no {
+  background: #ff1744;
+  color: white;
+  position: absolute;
+  left: 0;
+  top: 60px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box" id="box">
+  <h2>Will you be my Valentine? 💖</h2>
+
+  <div class="buttons" id="buttons">
+    <button id="yes" onclick="goYes()">YES ❤️</button>
+    <button id="no">NO 💔</button>
+  </div>
+</div>
+
+<script>
+const noBtn = document.getElementById("no");
+const buttons = document.getElementById("buttons");
+
+function moveNo() {
+  const maxX = buttons.clientWidth - noBtn.offsetWidth;
+  const maxY = buttons.clientHeight - noBtn.offsetHeight;
+
+  const x = Math.random() * maxX;
+  const y = Math.random() * maxY;
+
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+}
+
+noBtn.addEventListener("touchstart", moveNo);
+noBtn.addEventListener("mouseenter", moveNo);
+
+function goYes() {
+  window.location.href = "https://drive.google.com/file/d/1d20LtxcrdH1puy1ny8xPwVYXeocCc0zD/view?usp=drivesdk";
+}
+</script>
+
+</body>
+</html>
